@@ -1,0 +1,39 @@
+{
+  "from": {
+    "name": "Acme Corporation",
+    "email": "billing@acme.com",
+    "address": "123 Business Street, Suite 100, New York, NY 10001",
+    "phone": "+1 (212) 555-0100",
+    "taxId": "TAX-123456789"
+  },
+  "to": {
+    "name": "Client Company Inc.",
+    "email": "accounts@clientcompany.com",
+    "address": "456 Client Avenue, Los Angeles, CA 90001",
+    "phone": "+1 (310) 555-0200",
+    "taxId": "TAX-987654321"
+  },
+  "items": [
+    {
+      "description": "Web Development Services - Frontend Development",
+      "quantity": 40,
+      "unitPrice": 75.00
+    },
+    {
+      "description": "UI/UX Design Consultation",
+      "quantity": 10,
+      "unitPrice": 100.00
+    },
+    {
+      "description": "Backend API Development",
+      "quantity": 30,
+      "unitPrice": 85.00
+    }
+  ],
+  "dueDate": "2025-12-31",
+  "currency": "USD",
+  "taxRate": 8.5,
+  "discount": 150,
+  "notes": "Thank you for your business. We appreciate the opportunity to work with you.",
+  "terms": "Payment is due within 30 days. Late payments may be subject to a 1.5% monthly interest charge."
+}
