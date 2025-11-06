@@ -1,4 +1,27 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "FAQ - Frequently Asked Questions About Invoice Generator",
+  description: "Find answers to common questions about our free invoice generator. Learn about features, security, currencies, PDF downloads, and how to create professional invoices easily.",
+  keywords: [
+    "invoice generator FAQ",
+    "invoice questions",
+    "invoice help",
+    "free invoice FAQ",
+    "invoice generator help",
+    "how to create invoice"
+  ],
+  alternates: {
+    canonical: "https://invoice4u.vercel.app/faq"
+  },
+  openGraph: {
+    title: "FAQ - Frequently Asked Questions About Invoice Generator",
+    description: "Find answers to common questions about our free invoice generator. Learn about features, security, and how to create professional invoices.",
+    url: "https://invoice4u.vercel.app/faq",
+    type: "website",
+  },
+};
 
 export default function FAQPage() {
   return (
