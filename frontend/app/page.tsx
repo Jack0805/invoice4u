@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import InvoiceForm from '@/components/forms/InvoiceForm';
 import { Invoice } from '@/lib/api';
 
+// This metadata will be inherited from layout.tsx
 export default function Home() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);

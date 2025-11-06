@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { invoiceApi } from '@/lib/api';
 import { useAppSelector } from '@/lib/redux/hooks';
 
+// Metadata is handled by layout.tsx template
 export default function PreviewPage() {
   const router = useRouter();
   const invoice = useAppSelector((state) => state.invoice.formData);

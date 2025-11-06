@@ -4,8 +4,55 @@ import StoreProvider from "@/lib/redux/StoreProvider";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Invoice Generator",
-  description: "Create and manage professional invoices",
+  title: {
+    default: "Invoice Generator - Create Professional Invoices Free",
+    template: "%s | Invoice Generator"
+  },
+  description: "Create professional invoices instantly with our free online invoice generator. No registration required. Support for 30+ currencies, automatic calculations, and instant PDF downloads.",
+  keywords: [
+    "invoice generator",
+    "free invoice",
+    "create invoice",
+    "invoice maker",
+    "professional invoice",
+    "PDF invoice",
+    "online invoice",
+    "invoice template",
+    "business invoice",
+    "freelance invoice",
+    "invoice creator",
+    "generate invoice free"
+  ],
+  authors: [{ name: "Invoice Generator" }],
+  creator: "Invoice Generator",
+  publisher: "Invoice Generator",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://invoice4u.vercel.app"
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://invoice4u.vercel.app",
+    title: "Invoice Generator - Create Professional Invoices Free",
+    description: "Create professional invoices instantly with our free online invoice generator. No registration required. Support for 30+ currencies, automatic calculations, and instant PDF downloads.",
+    siteName: "Invoice Generator",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Invoice Generator - Create Professional Invoices Free",
+    description: "Create professional invoices instantly with our free online invoice generator. No registration required.",
+  },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -25,6 +72,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+  metadataBase: new URL("https://invoice4u.vercel.app"),
 };
 
 export default function RootLayout({

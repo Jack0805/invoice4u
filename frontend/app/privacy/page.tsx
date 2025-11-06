@@ -1,4 +1,25 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Privacy Policy - Invoice Generator",
+  description: "Read our privacy policy to understand how Invoice Generator handles your data. We store data locally in your browser and only temporarily process it to generate PDFs.",
+  keywords: [
+    "invoice generator privacy",
+    "privacy policy",
+    "data security",
+    "invoice data protection"
+  ],
+  alternates: {
+    canonical: "https://invoice4u.vercel.app/privacy"
+  },
+  openGraph: {
+    title: "Privacy Policy - Invoice Generator",
+    description: "Read our privacy policy to understand how Invoice Generator handles your data securely.",
+    url: "https://invoice4u.vercel.app/privacy",
+    type: "website",
+  },
+};
 
 export default function PrivacyPage() {
   return (

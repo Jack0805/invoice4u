@@ -1,4 +1,26 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "About Us - Free Invoice Generator Tool",
+  description: "Learn about Invoice Generator - a free, easy-to-use online tool for creating professional invoices. No registration required, supports 30+ currencies, and instant PDF downloads.",
+  keywords: [
+    "about invoice generator",
+    "invoice tool",
+    "free invoicing",
+    "invoice maker about",
+    "professional invoices"
+  ],
+  alternates: {
+    canonical: "https://invoice4u.vercel.app/about"
+  },
+  openGraph: {
+    title: "About Us - Free Invoice Generator Tool",
+    description: "Learn about Invoice Generator - a free, easy-to-use online tool for creating professional invoices.",
+    url: "https://invoice4u.vercel.app/about",
+    type: "website",
+  },
+};
 
 export default function AboutPage() {
   return (

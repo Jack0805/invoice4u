@@ -1,4 +1,25 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Terms of Use - Invoice Generator",
+  description: "Read the Terms of Use for Invoice Generator. Learn about acceptable use, user responsibilities, and terms for using our free invoice generation service.",
+  keywords: [
+    "invoice generator terms",
+    "terms of use",
+    "terms and conditions",
+    "invoice service terms"
+  ],
+  alternates: {
+    canonical: "https://invoice4u.vercel.app/terms"
+  },
+  openGraph: {
+    title: "Terms of Use - Invoice Generator",
+    description: "Read the Terms of Use for Invoice Generator and understand how to use our service responsibly.",
+    url: "https://invoice4u.vercel.app/terms",
+    type: "website",
+  },
+};
 
 export default function TermsPage() {
   return (
