@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import StoreProvider from "@/lib/redux/StoreProvider";
 import Footer from "@/components/Footer";
+import Link from "@/components/ui/Link";
 
 export const metadata: Metadata = {
   title: {
@@ -114,6 +115,9 @@ export default function RootLayout({
                   >
                     Invoice Generator
                   </a>
+                </div>
+                <div>
+                  <Link />
                 </div>
               </div>
             </div>
