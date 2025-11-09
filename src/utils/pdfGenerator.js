@@ -2,6 +2,7 @@ import PDFDocument from 'pdfkit';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { getTaxConfig, formatTaxLabel } from './taxConfig.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,6 +12,9 @@ export async function generateInvoicePDF(invoice) {
     try {
       const doc = new PDFDocument({ margin: 50 });
       const chunks = [];
+
+      // Get tax configuration for the invoice currency
+      const taxConfig = getTaxConfig(invoice.currency);
 
       // Collect PDF chunks
       doc.on('data', chunk => chunks.push(chunk));
@@ -39,7 +43,7 @@ export async function generateInvoicePDF(invoice) {
 
       if (invoice.from.address) doc.text(invoice.from.address, 50, 200);
       if (invoice.from.phone) doc.text(invoice.from.phone, 50, 215);
-      if (invoice.from.taxId) doc.text(`Tax ID: ${invoice.from.taxId}`, 50, 230);
+      if (invoice.from.taxId) doc.text(`${taxConfig.taxIdShortLabel}: ${invoice.from.taxId}`, 50, 230);
 
       // To section
       doc
@@ -51,7 +55,7 @@ export async function generateInvoicePDF(invoice) {
 
       if (invoice.to.address) doc.text(invoice.to.address, 300, 200);
       if (invoice.to.phone) doc.text(invoice.to.phone, 300, 215);
-      if (invoice.to.taxId) doc.text(`Tax ID: ${invoice.to.taxId}`, 300, 230);
+      if (invoice.to.taxId) doc.text(`${taxConfig.taxIdShortLabel}: ${invoice.to.taxId}`, 300, 230);
 
       // Items table
       let tableTop = 280;
@@ -99,7 +103,7 @@ export async function generateInvoicePDF(invoice) {
 
       if (invoice.taxRate > 0) {
         doc
-          .text(`Tax (${invoice.taxRate}%):`, 380, totalsTop + 40)
+          .text(`${formatTaxLabel(invoice.currency, invoice.taxRate)}:`, 380, totalsTop + 40)
           .text(`${invoice.currency} ${invoice.taxAmount.toFixed(2)}`, 480, totalsTop + 40);
       }
 

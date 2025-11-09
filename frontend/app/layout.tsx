@@ -6,9 +6,10 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: {
     default: "Invoice Generator - Create Professional Invoices Free",
-    template: "%s | Invoice Generator"
+    template: "%s | Invoice Generator",
   },
-  description: "Create professional invoices instantly with our free online invoice generator. No registration required. Support for 30+ currencies, automatic calculations, and instant PDF downloads.",
+  description:
+    "Create professional invoices instantly with our free online invoice generator. No registration required. Support for 30+ currencies, automatic calculations, and instant PDF downloads.",
   keywords: [
     "invoice generator",
     "free invoice",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "business invoice",
     "freelance invoice",
     "invoice creator",
-    "generate invoice free"
+    "generate invoice free",
   ],
   authors: [{ name: "Invoice Generator" }],
   creator: "Invoice Generator",
@@ -38,20 +39,22 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://invoice4u.vercel.app"
+    canonical: "https://invoice4u.io",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://invoice4u.vercel.app",
+    url: "https://invoice4u.io",
     title: "Invoice Generator - Create Professional Invoices Free",
-    description: "Create professional invoices instantly with our free online invoice generator. No registration required. Support for 30+ currencies, automatic calculations, and instant PDF downloads.",
+    description:
+      "Create professional invoices instantly with our free online invoice generator. No registration required. Support for 30+ currencies, automatic calculations, and instant PDF downloads.",
     siteName: "Invoice Generator",
   },
   twitter: {
     card: "summary_large_image",
     title: "Invoice Generator - Create Professional Invoices Free",
-    description: "Create professional invoices instantly with our free online invoice generator. No registration required.",
+    description:
+      "Create professional invoices instantly with our free online invoice generator. No registration required.",
   },
   icons: {
     icon: [
@@ -72,7 +75,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  metadataBase: new URL("https://invoice4u.vercel.app"),
+  metadataBase: new URL("https://invoice4u.io"),
 };
 
 export default function RootLayout({
@@ -82,6 +85,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-2W6DQPQ37H"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2W6DQPQ37H');
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-screen bg-gray-50 flex flex-col">
         <StoreProvider>
           <nav className="bg-white shadow-sm border-b">

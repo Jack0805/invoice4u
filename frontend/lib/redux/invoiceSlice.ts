@@ -6,12 +6,13 @@ interface InvoiceState {
   createdInvoiceId: string | null;
 }
 
+// USD has 0% default tax rate (state-level sales tax varies)
 const initialFormData: Invoice = {
   from: { name: '', email: '', address: '', phone: '', taxId: '' },
   to: { name: '', email: '', address: '', phone: '', taxId: '' },
   items: [{ description: '', quantity: 1, unitPrice: 0 }],
   currency: 'USD',
-  taxRate: 0,
+  taxRate: 0, // USD default (no federal sales tax)
   discount: 0,
   notes: '',
   terms: '',
