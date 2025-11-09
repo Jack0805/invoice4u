@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { invoiceApi } from '@/lib/api';
 import { useAppSelector } from '@/lib/redux/hooks';
+import { getTaxConfig, formatTaxLabel } from '@/lib/taxConfig';
 
 // Metadata is handled by layout.tsx template
 export default function PreviewPage() {
@@ -63,6 +64,9 @@ export default function PreviewPage() {
   };
 
   const { subtotal, taxAmount, total } = calculateTotals();
+
+  // Get tax configuration for the selected currency
+  const taxConfig = getTaxConfig(invoice.currency);
 
   const formatCurrency = (amount: number) => {
     return `${invoice.currency} ${amount.toFixed(2)}`;
@@ -129,7 +133,7 @@ export default function PreviewPage() {
               <p className="text-xs sm:text-sm break-all">{invoice.from.email}</p>
               {invoice.from.address && <p className="text-xs sm:text-sm break-words">{invoice.from.address}</p>}
               {invoice.from.phone && <p className="text-xs sm:text-sm break-words">{invoice.from.phone}</p>}
-              {invoice.from.taxId && <p className="text-xs sm:text-sm break-words">Tax ID: {invoice.from.taxId}</p>}
+              {invoice.from.taxId && <p className="text-xs sm:text-sm break-words">{taxConfig.taxIdShortLabel}: {invoice.from.taxId}</p>}
             </div>
           </div>
 
@@ -141,7 +145,7 @@ export default function PreviewPage() {
               <p className="text-xs sm:text-sm break-all">{invoice.to.email}</p>
               {invoice.to.address && <p className="text-xs sm:text-sm break-words">{invoice.to.address}</p>}
               {invoice.to.phone && <p className="text-xs sm:text-sm break-words">{invoice.to.phone}</p>}
-              {invoice.to.taxId && <p className="text-xs sm:text-sm break-words">Tax ID: {invoice.to.taxId}</p>}
+              {invoice.to.taxId && <p className="text-xs sm:text-sm break-words">{taxConfig.taxIdShortLabel}: {invoice.to.taxId}</p>}
             </div>
           </div>
         </div>
@@ -191,7 +195,7 @@ export default function PreviewPage() {
             )}
             {invoice.taxRate && invoice.taxRate > 0 && (
               <div className="flex justify-between py-2 text-gray-700 text-xs sm:text-sm">
-                <span className="break-words">Tax ({invoice.taxRate}%):</span>
+                <span className="break-words">{formatTaxLabel(invoice.currency, invoice.taxRate)}:</span>
                 <span className="font-medium break-words text-right ml-2">{formatCurrency(taxAmount)}</span>
               </div>
             )}
